@@ -34,7 +34,7 @@ async def table(name:str=Form(default=""),type:str=Form(default=""),make:str=For
     df=data.sort_values(by='남은 장학금',ascending=False)
     df=df[['학교명','학제','설립구분','시','지역']]
     df['학교명']=df['학교명'].apply(lambda x : f'<button type="submit" value="{x}" name="name">{x}</button>')
-    df=df[df['학교명'].str.contains(name)&df['학제'].str.contains(make)&df['설립구분'].str.contains(type)&df['시'].str.contains(city1)&df['지역'].str.contains(city2)]
+    df=df[df['학교명'].str.contains(name)&df['학제'].str.contains(type)&df['설립구분'].str.contains(make)&df['시'].str.contains(city1)&df['지역'].str.contains(city2)]
     return HTMLResponse("<center><form target='_top' action='school' method='post'>"+df.to_html(index=False,escape=False).replace('style="text-align: right;"','style="text-align: center;"')+"</form></center>")
 
 @app.get("/table")
@@ -72,3 +72,8 @@ async def school(name:str=Form(...)):
     
 </body>
 </html>''')
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+
