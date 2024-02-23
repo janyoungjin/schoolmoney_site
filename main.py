@@ -62,11 +62,11 @@ async def school(name:str=Form(...)):
     <h1>{name}정보</h1>
     <a href="https://{df['학교홈페이지'].values[0]}" target="_blank">{name}홈페이지</a><br>
     <img style="width: 30%;" src="data:image/png;base64,{inmoney}">
-    {df[data.columns[7:12]].to_html(index=False,escape=False)}
+    {df[data.columns[7:12]].to_html(index=False,escape=False).replace("<table","<table style='width=100% '")}
     <img style="width: 30%;" src="data:image/png;base64,{money}">
-    {df[['교내장학금','교외장학금']].to_html(index=False,escape=False)}
+    {df[['교내장학금','교외장학금']].to_html(index=False,escape=False).replace("<table","<table style='width=100% '")}
     <img style="width: 30%;" src="data:image/png;base64,{result}">
-    {df[['등록금','전체 장학금']].to_html(index=False,escape=False)}
+    {df[['등록금','전체 장학금']].to_html(index=False,escape=False).replace("<table","<table style='width=100% '")}
     <button type="button" onclick="window.location.href='/'">처음으로</button>
     </center>
     
