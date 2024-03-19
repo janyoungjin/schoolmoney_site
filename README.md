@@ -8,10 +8,9 @@
 
 python, pandas, matplotlib, Fastapi, html, js
 
-## 데이터 출처
+## 부록
+
+[사이트](https://schoolmoney-site.onrender.com)
 
 [출처](https://github.com/janyoungjin/scholarshipData)
 
-## 데이터 출처
-
-[사이트](https://schoolmoney-site.onrender.com)
